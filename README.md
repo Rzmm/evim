@@ -1,0 +1,2 @@
+# evim
+easy vimrc
