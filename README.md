@@ -1,2 +1,2 @@
-# evim
+# easyvim
 easy vimrc
