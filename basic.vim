@@ -24,24 +24,8 @@ set autoread
 au FocusGained,BufEnter * checktime
 
 " With a map leader it's possible to do extra key combinations
-" like w saves the current file
+" like <leader>w saves the current file
 let mapleader = ","
-
-" Fast saving
-inoremap w :w
-noremap w :w
-
-" Fast Esc
-inoremap jk
-
-" source the current file
-nmap s :source %
-" source a visual range
-vmap s y:@"
-
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-command! W execute 'w !sudo tee % > /dev/null' edit!
 " }}}
 
 " => F1: VIM user interface {{{
@@ -112,9 +96,7 @@ set timeoutlen=1000
 
 " Display line number
 set number
-" set relativenumber
-
-set cc=80
+set relativenumber
 " }}}
 
 " => F2: Colors and Fonts {{{
@@ -172,10 +154,10 @@ set wrap "Wrap lines
 
 " => F5: Moving around, windows {{{
 " Map to / (search)
-map /
+map <space> /
 
 " Disable highlight when is pressed
-map :noh
+map <silent> <leader><cr> :noh<cr>
 
 " Specify the behavior when switching between buffers
 try
@@ -185,7 +167,7 @@ catch
 endtry
 
 " Return to last edit position when opening files (You want this!)
-au BufReadPost * if line("'"") > 1 && line("'"") <= line("$") | exe "normal! g'"" | endif
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " }}}
 
 " => F6: Status line {{{
@@ -199,17 +181,7 @@ function! RemoveLastM()
 :%s/^M$//g
 endfunction
 
-" Toggle paste mode on and off
-function! SetlocalPaste()
-:setlocal paste!
-endfunction
-
-" Magic help and echo
-noremap h :=printf("vertical topleft help %s ", expand(""))
-noremap vh :vertical topleft help
-
-noremap e :=printf("echo %s ", expand(""))
+" Magic help command
+noremap <leader>h :<C-U><C-R>=printf("vertical topleft help %s ", expand("<cword>"))<CR><CR>
 " }}}
 
-au TerminalOpen * if &buftype == 'terminal' | setlocal bufhidden=hide | endif
-tnoremap N

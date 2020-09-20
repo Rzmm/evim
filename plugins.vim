@@ -1,62 +1,63 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins Sections:
-" -> F0: pathogen [插件管理]
-" -> F1: delimitMate [成对符号补全]
-" -> F2:
-" -> F3: YankRing [剪切板粘贴]
-" -> F4: vim-airline [状态栏]
-" -> F5: nerdtree [目录]
-" -> F6:
-" -> F7:
-" -> F8: vim-autoformat [代码格式化]
-" -> F9: undotree [回退工具]
-" -> F10:
-" -> F11: vim-choosewin [窗口切换]
-" -> F12: nerdcommenter [注释工具]
-" -> F13: Leaderf [模糊搜索]
-" -> F14: youcompleteme [自动补全]
-" -> F15:
-" -> F16: vim-interestingwords [高亮选中]
+" -> 0: pathogen [插件管理]
+" -> 1: nerdtree [目录树]
+" -> 2: undotree [回退工具]
+" -> 3: vim-airline [状态栏]
+" -> 4: delimitMate [成对符号补全]
+" -> 5: vim-interestingwords [高亮选中]
+" -> 6: vim-autoformat [代码格式化]
+" -> 7: vim-choosewin [窗口切换]
+" -> 8: nerdcommenter [注释工具]
+" -> 9: Leaderf [模糊搜索]
+" -> 10: youcompleteme [自动补全]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" => F0: pathogen {{{
-execute pathogen#infect()
+" => 0: vubdle {{{
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'preservim/nerdtree'
+Plugin 'git@github.com:mbbill/undotree.git'
+Plugin 'vim-airline/vim-airline'
+Plugin 'git@github.com:Raimondi/delimitMate.git'
+Plugin 'git@github.com:lfv89/vim-interestingwords.git'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'git@github.com:t9md/vim-choosewin.git'
+Plugin 'preservim/nerdcommenter'
+Plugin 'Yggdroot/LeaderF'
+call vundle#end()            " required
 " }}}
 
-" => F1: delimitMate {{{
-" shift+tab: jump to end
-" }}}
-
-" => F2: {{{
-" }}}
-
-" => F3: YankRing {{{
-let g:yankring_history_dir = $HOME.'/.vim/'
-let g:yankring_history_file = '.yankring_history'
-nmap y :YRShow
-" }}}
-
-" => F4: vim-airline {{{
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-" }}}
-
-" => F5: nerdtree {{{
-nnoremap :NERDTreeToggle
+" => 1: [F5] nerdtree {{{
+nnoremap <F5> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " }}}
 
-" => F6: {{{
+" => 2: [F6] undotree {{{
+nnoremap <F6> :UndotreeToggle<CR>
 " }}}
 
-" => F7: {{{
+" => 3: vim-airline {{{
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 " }}}
 
-" => F8: vim-autoformat {{{
-nnoremap :Autoformat
+" => 4: delimitMate {{{
+" shift+tab: jump to end
+" }}}
+
+" => 5: vim-interestingwords {{{
+" k and K
+nnoremap n :call WordNavigation('forward')
+nnoremap N :call WordNavigation('backward')
+" }}}
+
+" => 6: [F7] vim-autoformat {{{
+nnoremap <F7> :Autoformat<CR>
 let g:autoformat_autoindent = 1
 let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 1
@@ -64,17 +65,14 @@ let g:formatdef_clangformat_google = '"clang-format -style google -"'
 let g:formatters_c = ['clangformat_google']
 " }}}
 
-" => F9: undotree {{{
-" }}}
-
-" => F11: vim-choosewin {{{
+" => 7: [-] vim-choosewin {{{
 " invoke with '-'
-nmap - (choosewin)
+nmap  -  <Plug>(choosewin)
 " if you want to use overlay feature
 let g:choosewin_overlay_enable = 1
 " }}}
 
-" => F12: nerdcommenter {{{
+" => 8: [,cc/,cu] nerdcommenter {{{
 " cc or cs: commenter
 " cu: cancel commenter
 " Add spaces after comment delimiters by default
@@ -87,7 +85,7 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 " }}}
 
-" => F13: Leaderf {{{
+" => 9: Leaderf {{{
 " don't show the help in normal mode
 let g:Lf_HideHelp = 1
 let g:Lf_UseCache = 0
@@ -95,57 +93,20 @@ let g:Lf_UseVersionControlTool = 0
 let g:Lf_IgnoreCurrentBufferName = 1
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+let g:Lf_PreviewInPopup = 1
 
-let g:Lf_WildIgnore = {
-\ 'dir': ['.svn','.git','.hg', 'cross_compiler', 'make', 'busybox', 'linux-lsk-v4.1.25'],
-\ 'file': ['.sw?','~$','.bak','.exe','.o','.so.','.py[co]']
-}
+let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
 
-noremap lf :LeaderfFunction!
-
-noremap :=printf("Leaderf! rg -w --current-buffer -e '%s' ", expand(""))
-noremap :=printf("Leaderf! rg -w '%s' ", expand(""))
-noremap a :Leaderf! --recall
+noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg -w --current-buffer -e %s ", expand("<cword>"))<CR><CR>
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -w -e %s ", expand("<cword>"))<CR><CR>
 
 let g:Lf_GtagsAutoGenerate = 0
-noremap lg :=printf("Leaderf! gtags --update")
-noremap lr :=printf("Leaderf! gtags -r '%s' --auto-jump", expand(""))
-noremap ld :=printf("Leaderf! gtags -d '%s' --auto-jump", expand(""))
-" }}}
+noremap <leader>lr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>ld :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>lo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+noremap <leader>ln :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+noremap <leader>lp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
-" => F14: youcompleteme {{{
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_server_log_level = 'info'
-let g:ycm_min_num_identifier_candidate_chars = 2
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_complete_in_strings=1
-let g:ycm_key_invoke_completion = ''
-set completeopt=menu,menuone
+noremap <leader>lf :LeaderfFunction!<CR>
 
-let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
-noremap
-
-let g:ycm_semantic_triggers = {
-\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-\ 'cs,lua,javascript': ['re!\w{2}'],
-\ }
-
-let g:ycm_filetype_whitelist = {
-\ "c":1,
-\ "cpp":1,
-\ "objc":1,
-\ "sh":1,
-\ "zsh":1,
-\ "zimbu":1,
-\ }
-" }}}
-
-" => F15: {{{
-" }}}
-
-" => F16: vim-interestingwords {{{
-" k and K
-nnoremap n :call WordNavigation('forward')
-nnoremap N :call WordNavigation('backward')
 " }}}
