@@ -76,7 +76,7 @@ To get a local copy up and running follow these simple example steps.
 
 Install Easyvim simply do following from your terminal.
 ```
-wget -qO- https://raw.github.com/ma6174/vim/master/setup.sh | sh -x
+wget -qO- https://raw.githubusercontent.com/r1024/easyvim/master/install.sh | sh -x
 ```
 
 <!-- USAGE EXAMPLES -->
@@ -97,8 +97,6 @@ Contributions are what make the open source community such an amazing place to b
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-
 
 <!-- LICENSE -->
 ## License
