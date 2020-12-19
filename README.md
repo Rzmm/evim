@@ -60,32 +60,37 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-我，从事嵌入式系统开发，喜欢简单的东西。如果你也喜欢折腾，可以尝试这个项目。
+VIM配置，支持以下特性：
+
+1. basic和plugin配置分离;
+2. 支持函数查找和函数高亮，方便代码阅读
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+按照下面的步骤执行即可，如果有问题后期我会在下面列出解决方法。
 
 ### Prerequisites
 
-建议vim版本8.0+
+1. 建议vim版本8.0+，支持python2和python3;
+2. 安装ctags;
+3. 安装ripgrep
+
 
 ### Installation
 
 Install Easyvim simply do following from your terminal.
 ```
-wget -qO- https://raw.githubusercontent.com/r1024/easyvim/master/install.sh | sh -x
+git clone git@github.com:r1024/easyvim.git ~/.vim
+cd ~/.vim
+./install.sh
 ```
+启动vim执行:PluginInstall
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-xxx，待补充
-
 _For more examples, please refer to the [Documentation](https://example.com)_
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -109,8 +114,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 [email] - wenchen.mails@gmail.com
-
-
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
