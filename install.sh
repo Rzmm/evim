@@ -6,23 +6,15 @@ if [ -f $HOME/.vimrc ]; then
 	cp -f $HOME/.vimrc $backup_dot_vimrc
 fi
 
-if [ -f $HOME/.vim ]; then
-	backup_dot_vim="$HOME/.vim`date '+%y%m%d_%H%M%S'`"
-	echo "$HOME/.vim already exist, easyvim backup it to $backup_dot_vim"
-	cp -rf $HOME/.vim $backup_dot_vim
-fi
-
 echo ""
 
-git clone git@github.com:r1024/easyvim.git $HOME/.vim > /dev/null 2>&1
-
-# install plugins
+# install Vundle
+echo "install Vundle..."
 mkdir ~/.vim/bundle/
-echo "Clone delimitMate ..."
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "source ~/.vim/basic.vim" > $HOME/.vimrc 
 echo "source ~/.vim/plugins.vim" >> $HOME/.vimrc
 
-echo "Easyvim install succsess!"
+echo "Easyvim install succsess, exec :PluginInstall in VIM!"
 echo ""
