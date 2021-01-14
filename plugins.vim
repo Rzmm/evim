@@ -10,6 +10,7 @@
 " -> 7: delimitMate                 [成对符号补全]
 " -> 8: vim-airline                 [状态栏]
 " -> 9: Leaderf                     [模糊搜索]
+" -> 10: vim-fugitive               [Git管理]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " => 0: vubdle {{{
@@ -25,6 +26,7 @@ Plugin 'https://github.com/Chiel92/vim-autoformat.git'
 Plugin 'https://github.com/t9md/vim-choosewin.git'
 Plugin 'https://github.com/preservim/nerdcommenter.git'
 Plugin 'https://github.com/Yggdroot/LeaderF.git'
+Plugin 'https://github.com/tpope/vim-fugitive.git'
 call vundle#end()            " required
 " }}}
 
