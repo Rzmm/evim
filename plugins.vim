@@ -97,7 +97,7 @@ let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_PreviewInPopup = 1
 let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
 let g:Lf_GtagsAutoGenerate = 0
-" let g:Lf_RootMarkers=['.Lf_project_root_marker']
+let g:Lf_RootMarkers=['.Lf_project_root_marker']
 
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg -w --current-buffer -e %s ", expand("<cword>"))<CR><CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -w -e %s ", expand("<cword>"))<CR><CR>
