@@ -79,7 +79,7 @@ VIM配置，支持以下特性：
 
 ### Installation
 
-Install Easyvim simply do following from your terminal.
+Backup your `~/.vim` and `~/vimrc`, install Easyvim simply do following from your terminal.
 ```
 git clone git@github.com:r1024/easyvim.git ~/.vim
 cd ~/.vim
