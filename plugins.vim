@@ -25,7 +25,6 @@ Plugin 'https://github.com/Chiel92/vim-autoformat.git'
 Plugin 'https://github.com/t9md/vim-choosewin.git'
 Plugin 'https://github.com/preservim/nerdcommenter.git'
 Plugin 'https://github.com/Yggdroot/LeaderF.git'
-Plugin 'https://github.com/tpope/vim-fugitive.git'
 call vundle#end()            " required
 " }}}
 
