@@ -73,7 +73,7 @@ VIM配置，支持以下特性：
 ### Prerequisites
 
 1. 建议vim版本8.0+，支持python2和python3;
-2. 安装ctags;
+2. 安装[ctags](https://github.com/universal-ctags/ctags.git);
 3. 安装ripgrep
 
 
