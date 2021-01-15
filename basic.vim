@@ -129,6 +129,7 @@ highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
 set nobackup
 set nowb
 set noswapfile
+set updatetime=100
 " }}}
 
 " => F4: Text, tab and indent related {{{
@@ -180,8 +181,4 @@ set laststatus=2
 function! RemoveLastM()
 :%s/^M$//g
 endfunction
-
-" Magic help command
-noremap <leader>h :<C-U><C-R>=printf("vertical topleft help %s ", expand("<cword>"))<CR><CR>
 " }}}
-
