@@ -7,9 +7,9 @@
 " -> 4: nerdcommenter               [注释工具]
 " -> 5: vim-interestingwords        [高亮选中]
 " -> 6: vim-choosewin               [窗口切换]
-" -> 7: delimitMate                 [成对符号补全]
-" -> 8: vim-airline                 [状态栏]
-" -> 9: Leaderf                     [模糊搜索]
+" -> 7: vim-airline                 [状态栏]
+" -> 8: Leaderf                     [模糊搜索]
+" -> 9: coc.nvim                    [自动补全]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " => 0: vubdle {{{
@@ -19,12 +19,13 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'https://github.com/preservim/nerdtree.git'
 Plugin 'https://github.com/mbbill/undotree.git'
 Plugin 'https://github.com/vim-airline/vim-airline.git'
-Plugin 'https://github.com/Raimondi/delimitMate.git'
 Plugin 'https://github.com/lfv89/vim-interestingwords.git'
 Plugin 'https://github.com/Chiel92/vim-autoformat.git'
 Plugin 'https://github.com/t9md/vim-choosewin.git'
 Plugin 'https://github.com/preservim/nerdcommenter.git'
 Plugin 'https://github.com/Yggdroot/LeaderF.git'
+
+Plugin 'https://github.com/neoclide/coc.nvim.git'
 call vundle#end()            " required
 " }}}
 
@@ -36,6 +37,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " }}}
 
 " => 2: [F6] undotree {{{
+let g:undotree_DiffAutoOpen = 0
 nnoremap <F6> :UndotreeToggle<CR>
 " }}}
 
@@ -74,27 +76,23 @@ nmap  -  <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
 " }}}
 
-" => 7: [shift+tab] delimitMate {{{
-" shift+tab: jump to end
-" }}}
-
-" => 8: vim-airline {{{
+" => 7: vim-airline {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 " }}}
 
-" => 9: Leaderf {{{
+" => 8: Leaderf {{{
 " don't show the help in normal mode
 let g:Lf_HideHelp = 1
 let g:Lf_UseCache = 0
 let g:Lf_UseVersionControlTool = 0
-let g:Lf_IgnoreCurrentBufferName = 1
-let g:Lf_WindowPosition = 'popup'
+let g:Lf_IgnoreCurrentBufferName = 1            
+let g:Lf_WindowPosition = 'popup'               
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-let g:Lf_PreviewInPopup = 1
+let g:Lf_PreviewInPopup = 1                     
 let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
-let g:Lf_GtagsAutoGenerate = 0
+let g:Lf_GtagsAutoGenerate = 0                  
 let g:Lf_RootMarkers=['.Lf_project_root_marker']
 
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg -w --current-buffer -e %s ", expand("<cword>"))<CR><CR>
@@ -105,6 +103,52 @@ noremap <leader>ld :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand
 noremap <leader>lo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
 noremap <leader>ln :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 noremap <leader>lp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+
 noremap <leader>lf :LeaderfFunction!<CR>
+
+" }}}
+
+" => 9: coc.nvim {{{
+let g:coc_global_extensions = [
+    \ 'coc-marketplace',
+    \ 'coc-vimlsp',
+    \ 'coc-json',
+    \ 'coc-sh',
+    \ 'coc-tabnine',
+    \ 'coc-pairs']
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use <leader>h to show documentation in preview window.
+nnoremap <silent><leader>h :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
 " }}}
