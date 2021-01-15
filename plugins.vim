@@ -96,8 +96,9 @@ let g:Lf_GtagsAutoGenerate = 0
 let g:Lf_RootMarkers=['.Lf_project_root_marker']
 
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg -w --current-buffer -e %s ", expand("<cword>"))<CR><CR>
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -w -e %s ", expand("<cword>"))<CR><CR>
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -w -e %s ", expand("<cword>"))<CR>
 
+noremap <leader>lu :<C-U><C-R>=printf("Leaderf gtags --upgrade", "")<CR>
 noremap <leader>lr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
 noremap <leader>ld :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 noremap <leader>lo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
