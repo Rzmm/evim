@@ -82,7 +82,6 @@ VIM配置，支持以下特性：
 
 Backup your `~/.vim` and `~/vimrc`, install Easyvim simply do following from your terminal.
 ```
-install vim-plug
 git clone git@github.com:r1024/easyvim.git ~/.vim
 cd ~/.vim
 ./install.sh
