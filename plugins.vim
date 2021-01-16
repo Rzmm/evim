@@ -1,6 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins Sections:
-" -> 0: vubdle                      [插件管理]
+" -> 0: vim-plug                    [插件管理]
 " -> 1: nerdtree                    [目录树]
 " -> 2: undotree                    [回退工具]
 " -> 3: vim-autoformat              [代码格式化]
@@ -12,21 +12,19 @@
 " -> 9: coc.nvim                    [自动补全]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" => 0: vubdle {{{
+" => 0: vim-plug{{{
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'https://github.com/preservim/nerdtree.git'
-Plugin 'https://github.com/mbbill/undotree.git'
-Plugin 'https://github.com/vim-airline/vim-airline.git'
-Plugin 'https://github.com/lfv89/vim-interestingwords.git'
-Plugin 'https://github.com/Chiel92/vim-autoformat.git'
-Plugin 'https://github.com/t9md/vim-choosewin.git'
-Plugin 'https://github.com/preservim/nerdcommenter.git'
-Plugin 'https://github.com/Yggdroot/LeaderF.git'
-
-Plugin 'https://github.com/neoclide/coc.nvim.git'
-call vundle#end()            " required
+call plug#begin('~/.vim/plugged')
+Plug 'preservim/nerdtree'
+Plug 'mbbill/undotree'
+Plug 'vim-airline/vim-airline'
+Plug 'lfv89/vim-interestingwords'
+Plug 'Chiel92/vim-autoformat'
+Plug 't9md/vim-choosewin'
+Plug 'preservim/nerdcommenter'
+Plug 'Yggdroot/LeaderF'
+Plug 'neoclide/coc.nvim'
+call plug#end()
 " }}}
 
 " => 1: [F5] nerdtree {{{
