@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins Sections:
 " -> 0: vim-plug                    [插件管理]
 " -> 1: nerdtree                    [目录树]
@@ -89,14 +89,17 @@ let g:Lf_IgnoreCurrentBufferName = 1
 let g:Lf_WindowPosition = 'popup'               
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_PreviewInPopup = 1                     
-let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+let g:Lf_PreviewResult = {'Function': 1, 'BufTag': 0, 'Rg': 1, 'Gtags': 1 }
 let g:Lf_GtagsAutoGenerate = 0                  
 let g:Lf_RootMarkers=['.Lf_project_root_marker']
 
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg -w --current-buffer -e %s ", expand("<cword>"))<CR><CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -w -e %s ", expand("<cword>"))<CR>
+" search visually selected text literally
+xnoremap <leader>lg :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+noremap <leader>la :<C-U>Leaderf! rg --recall<CR>
 
-noremap <leader>lu :<C-U><C-R>=printf("Leaderf gtags --upgrade", "")<CR>
+" should use `Leaderf gtags --update` first
 noremap <leader>lr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
 noremap <leader>ld :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 noremap <leader>lo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
