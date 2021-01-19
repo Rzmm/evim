@@ -164,6 +164,6 @@ endfunction
 " }}}
 
 " => 11: [F8] vim-floaterm {{{
-let g:floaterm_keymap_toggle = '<F8>'
+let g:floaterm_keymap_toggle = '<Leader>tt'
 let g:floaterm_keymap_kill = '<Leader>tk'
 " }}}
