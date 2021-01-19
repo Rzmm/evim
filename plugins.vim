@@ -26,7 +26,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'Yggdroot/LeaderF'
 Plug 'neoclide/coc.nvim'
 Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
 call plug#end()
 " }}}
 
