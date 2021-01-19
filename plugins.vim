@@ -10,7 +10,7 @@
 " -> 7: vim-airline                 [状态栏]
 " -> 8: Leaderf                     [模糊搜索]
 " -> 9: coc.nvim                    [自动补全]
-" ->10: vim-snippets                [片段补全]
+" ->10: vim-snippets| ultisnips     [片段补全]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " => 0: vim-plug{{{
@@ -26,6 +26,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'Yggdroot/LeaderF'
 Plug 'neoclide/coc.nvim'
 Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
 call plug#end()
 " }}}
 
@@ -119,7 +120,6 @@ let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-sh',
     \ 'coc-tabnine',
-    \ 'coc-snippets',
     \ 'coc-pairs']
 
 inoremap <silent><expr> <TAB>
