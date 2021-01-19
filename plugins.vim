@@ -11,6 +11,7 @@
 " -> 8: Leaderf                     [模糊搜索]
 " -> 9: coc.nvim                    [自动补全]
 " ->10: vim-snippet                 [片段补全]
+" ->11: vim-floaterm                [内置终端]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " => 0: vim-plug{{{
@@ -26,6 +27,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'Yggdroot/LeaderF'
 Plug 'neoclide/coc.nvim'
 Plug 'honza/vim-snippets'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 " }}}
 
@@ -159,4 +161,9 @@ endfunction
 " }}}
 
 " => 10: [tab] vim-snippets {{{
+" }}}
+
+" => 11: [F8] vim-floaterm {{{
+let g:floaterm_keymap_toggle = '<F8>'
+let g:floaterm_keymap_kill = '<Leader>tk'
 " }}}
