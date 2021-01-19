@@ -119,6 +119,7 @@ let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-sh',
     \ 'coc-tabnine',
+    \ 'coc-snippets',
     \ 'coc-pairs']
 
 inoremap <silent><expr> <TAB>
