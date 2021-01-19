@@ -10,6 +10,7 @@
 " -> 7: vim-airline                 [状态栏]
 " -> 8: Leaderf                     [模糊搜索]
 " -> 9: coc.nvim                    [自动补全]
+" ->10: vim-snippets                [片段补全]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " => 0: vim-plug{{{
@@ -24,6 +25,7 @@ Plug 't9md/vim-choosewin'
 Plug 'preservim/nerdcommenter'
 Plug 'Yggdroot/LeaderF'
 Plug 'neoclide/coc.nvim'
+Plug 'honza/vim-snippets'
 call plug#end()
 " }}}
 
@@ -153,4 +155,7 @@ function! s:show_documentation()
   endif
 endfunction
 
+" }}}
+
+" => 10: [tab] vim-snippets {{{
 " }}}
