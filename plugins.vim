@@ -103,6 +103,8 @@ noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -w -e %s ", expand("<cword>"))<CR>
 xnoremap <leader>lg :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
 noremap <leader>la :<C-U>Leaderf! rg --recall<CR>
 
+noremap <leader>lb :<C-U>LeaderfBuffer<CR>
+
 " should use `Leaderf gtags --update` first
 noremap <leader>lr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
 noremap <leader>ld :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
