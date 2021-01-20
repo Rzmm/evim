@@ -12,7 +12,6 @@
 " -> 9: coc.nvim                    [自动补全]
 " ->10: vim-snippet                 [片段补全]
 " ->11: vim-floaterm                [内置终端]
-" ->12: tabular                     [符号对齐]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " => 0: vim-plug{{{
@@ -29,14 +28,12 @@ Plug 'Yggdroot/LeaderF'
 Plug 'neoclide/coc.nvim'
 Plug 'honza/vim-snippets'
 Plug 'voldikss/vim-floaterm'
-Plug 'godlygeek/tabular'
 call plug#end()
 " }}}
 
 " => 1: [F5] nerdtree {{{
-" m : 对所选择的文件或文件夹弹出编辑菜单. 包括修改文件名, 复制, 移动, 删除等操作
 nnoremap <F5> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable  = '+'
+let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " }}}
@@ -48,11 +45,11 @@ nnoremap <F6> :UndotreeToggle<CR>
 
 " => 3: [F7] vim-autoformat {{{
 nnoremap <F7> :Autoformat<CR>
-let g:autoformat_autoindent             = 1
-let g:autoformat_retab                  = 0
+let g:autoformat_autoindent = 1
+let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 1
-let g:formatdef_clangformat_google      = '"clang-format -style google -"'
-let g:formatters_c                      = ['clangformat_google']
+let g:formatdef_clangformat_google = '"clang-format -style google -"'
+let g:formatters_c = ['clangformat_google']
 " }}}
 
 " => 4: [,cc/,cu] nerdcommenter {{{
@@ -168,8 +165,5 @@ endfunction
 
 " => 11: [F8] vim-floaterm {{{
 let g:floaterm_keymap_toggle = '<Leader>tt'
-let g:floaterm_keymap_kill   = '<Leader>tk'
-" }}}
-
-" => 12: tabular {{{
+let g:floaterm_keymap_kill = '<Leader>tk'
 " }}}
