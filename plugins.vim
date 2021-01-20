@@ -11,7 +11,8 @@
 " -> 8: Leaderf                     [模糊搜索]
 " -> 9: coc.nvim                    [自动补全]
 " ->10: vim-snippet                 [片段补全]
-" ->11: vim-floaterm                [内置终端]
+" ->11: tabular                     [符号对齐]
+" ->12: vim-terminal-help           [内置终端]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " => 0: vim-plug{{{
@@ -27,7 +28,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'Yggdroot/LeaderF'
 Plug 'neoclide/coc.nvim'
 Plug 'honza/vim-snippets'
-Plug 'voldikss/vim-floaterm'
+Plug 'godlygeek/tabular'
+Plug 'skywind3000/vim-terminal-help'
 call plug#end()
 " }}}
 
@@ -165,7 +167,9 @@ endfunction
 " => 10: [tab] vim-snippets {{{
 " }}}
 
-" => 11: [F8] vim-floaterm {{{
-let g:floaterm_keymap_toggle = '<Leader>tt'
-let g:floaterm_keymap_kill = '<Leader>tk'
+" => 11: tabular {{{
+" :Tabularize /=/
+" }}}
+
+" => 12: [A-=/A-q] vim-terminal-help {{{
 " }}}
