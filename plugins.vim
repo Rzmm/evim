@@ -12,7 +12,6 @@
 " -> 9: coc.nvim                    [自动补全]
 " ->10: vim-snippet                 [片段补全]
 " ->11: tabular                     [符号对齐]
-" ->12: vim-terminal-help           [内置终端]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " => 0: vim-plug{{{
@@ -169,7 +168,4 @@ endfunction
 
 " => 11: tabular {{{
 " :Tabularize /=/
-" }}}
-
-" => 12: [A-=/A-q] vim-terminal-help {{{
 " }}}
