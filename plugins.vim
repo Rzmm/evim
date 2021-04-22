@@ -28,7 +28,6 @@ Plug 'Yggdroot/LeaderF'
 Plug 'neoclide/coc.nvim'
 Plug 'honza/vim-snippets'
 Plug 'godlygeek/tabular'
-Plug 'skywind3000/vim-terminal-help'
 call plug#end()
 " }}}
 
