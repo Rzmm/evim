@@ -1,13 +1,5 @@
 #!/bin/sh
 
-if [ -f $HOME/.vimrc ]; then
-	backup_dot_vimrc="$HOME/.vimrc`date '+%y%m%d_%H%M%S'`"
-	echo "$HOME/.vimrc already exist, easyvim backup it to $backup_dot_vimrc"
-	cp -f $HOME/.vimrc $backup_dot_vimrc
-fi
-
-echo ""
-
 # install Vundle
 echo "install vim-plug..."
 mkdir -p ~/.vim/autoload ~/.vim/plugged

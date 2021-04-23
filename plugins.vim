@@ -4,14 +4,14 @@
 " -> 1: nerdtree                    [目录树]
 " -> 2: undotree                    [回退工具]
 " -> 3: vim-autoformat              [代码格式化]
-" -> 4: nerdcommenter               [注释工具]
+" -> 4: tabular                     [符号对齐]
 " -> 5: vim-interestingwords        [高亮选中]
 " -> 6: vim-choosewin               [窗口切换]
 " -> 7: vim-airline                 [状态栏]
 " -> 8: Leaderf                     [模糊搜索]
 " -> 9: coc.nvim                    [自动补全]
-" ->10: vim-snippet                 [片段补全]
-" ->11: tabular                     [符号对齐]
+" ->10: nerdcommenter               [注释工具]
+" ->
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " => 0: vim-plug{{{
@@ -19,15 +19,17 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'mbbill/undotree'
-Plug 'vim-airline/vim-airline'
-Plug 'lfv89/vim-interestingwords'
 Plug 'Chiel92/vim-autoformat'
+Plug 'godlygeek/tabular'
+Plug 'lfv89/vim-interestingwords'
 Plug 't9md/vim-choosewin'
-Plug 'preservim/nerdcommenter'
+Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/LeaderF'
 Plug 'neoclide/coc.nvim'
+Plug 'preservim/nerdcommenter'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'godlygeek/tabular'
+Plug 'Raimondi/delimitMate'
 call plug#end()
 " }}}
 
@@ -52,23 +54,12 @@ let g:formatdef_clangformat_google = '"clang-format -style google -"'
 let g:formatters_c = ['clangformat_google']
 " }}}
 
-" => 4: [,cc/,cu] nerdcommenter {{{
-" cc or cs: commenter
-" cu: cancel commenter
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
+" => 4: [F8] tabular {{{
+vnoremap <silent> <F8> :Tabularize /=<CR>
 " }}}
 
 " => 5: [k && K] vim-interestingwords {{{
 " k and K
-nnoremap n :call WordNavigation('forward')
-nnoremap N :call WordNavigation('backward')
 " }}}
 
 " => 6: [-] vim-choosewin {{{
@@ -119,34 +110,7 @@ noremap <leader>lf :LeaderfFunction!<CR>
 " => 9: coc.nvim {{{
 let g:coc_global_extensions = [
     \ 'coc-marketplace',
-    \ 'coc-vimlsp',
-    \ 'coc-json',
-    \ 'coc-sh',
-    \ 'coc-tabnine',
-    \ 'coc-snippets',
-    \ 'coc-pairs']
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+    \ 'coc-tabnine']
 
 " Use <leader>h to show documentation in preview window.
 nnoremap <silent><leader>h :call <SID>show_documentation()<CR>
@@ -159,12 +123,18 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
-
 " }}}
 
-" => 10: [tab] vim-snippets {{{
+" => 10: [,cc/,cu] nerdcommenter {{{
+" cc or cs: commenter
+" cu: cancel commenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
 " }}}
 
-" => 11: tabular {{{
-" :Tabularize /=/
-" }}}

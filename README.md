@@ -20,7 +20,7 @@
   <h3 align="center">Easyvim</h3>
 
   <p align="center">
-    vim配置，简单、易用是宗旨
+    Easyvim
     <br />
     <a href="https://github.com/r1024/easyvim"><strong>Explore the docs »</strong></a>
     <br />
@@ -52,7 +52,7 @@
 VIM配置，支持以下特性：
 
 1. basic和plugin配置分离;
-2. 支持函数查找和函数高亮，方便代码阅读
+2. 支持函数查找和函数高亮
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -61,7 +61,7 @@ VIM配置，支持以下特性：
 
 ### Prerequisites
 
-1. 建议vim版本8.0+，支持python2和python3;
+1. 安装vim版本8.0+，支持python3;
 2. 安装[ctags](https://github.com/universal-ctags/ctags.git);
 3. 安装ripgrep
 4. 安装nodejs
@@ -79,8 +79,16 @@ cd ~/.vim
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+- F5: 打开/关闭文件浏览
+- F6: 打开/关闭Undotree
+- F7: 美化当前文件格式
+- F8: 按照=对齐
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+- C-b: 在当前buffer中查找光标所在单词
+- C-f: 在指定目录下查找光标所在单词
+
+- ,ld: 跳转到函数定义处
+- ,lr: 跳转到函数引用处
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -97,8 +105,6 @@ Contributions are what make the open source community such an amazing place to b
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
-
 
 <!-- CONTACT -->
 ## Contact

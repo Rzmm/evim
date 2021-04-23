@@ -85,14 +85,6 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" Add a bit extra margin to the left
-" zfa{ or zfi{
-set foldcolumn=1
-autocmd FileType vim setlocal foldmethod=marker
-autocmd FileType c setlocal foldmethod=indent
-autocmd FileType sh setlocal foldmethod=indent
-
-
 " Show cmd in status line, Cmd like emacs
 set showcmd
 set timeoutlen=1000
