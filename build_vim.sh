@@ -1,7 +1,7 @@
 #!/bin/sh
 # Build vim with python3.6
 
-./configure --with-features=huge \
+CFLAGS=-fPIC ./configure --with-features=huge \
     --enable-multibyte \
     --enable-rubyinterp=yes \
     --enable-python3interp=yes \
